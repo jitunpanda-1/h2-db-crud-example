@@ -29,14 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-//@EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactory",
-//                        basePackages = {"com.example.h2dbcrudexample"})
-//@EnableTransactionManagement
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class DbConfig {
-
-//    @Autowired
-//    Environment env;
 
     @Primary
     @Bean
@@ -60,38 +53,4 @@ public class DbConfig {
         return properties.initializeDataSourceBuilder().type(HikariDataSource.class)
                 .build();
     }
-
-//    @Primary
-//    @Bean("entityManagerFactory")
-//    public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder,
-//                                                                       @Qualifier("dataSource") DataSource dataSource) {
-//
-//        Map<String, Object> properties = new HashMap<>();
-//        properties.put("hibernate.hbm2ddl.auto",
-//                env.getProperty("spring.jpa.hibernate.ddl-auto"));
-//        properties.put("hibernate.dialect",
-//                env.getProperty("spring.jpa.properties.hibernate.dialect"));
-//        LocalContainerEntityManagerFactoryBean bean =
-//                builder.dataSource(dataSource)
-//                                .packages("com.example.h2dbcrudexample").
-//                        persistenceUnit("primaryPersistenceUnit")
-//                        .build();
-////        bean.setPersistenceUnitPostProcessors(pui -> pui.addManagedClassName());
-//
-//        return bean;
-//    }
-//
-//    @Primary
-//    @Bean(name = "transactionManager")
-//    public PlatformTransactionManager transactionManager(@Qualifier("entityManagerFactory")EntityManagerFactory entityManagerFactory) {
-//        return  new JpaTransactionManager(entityManagerFactory);
-//    }
-
-//    @Bean
-//    public EntityManagerFactoryBuilder entityManagerFactoryBuilder(JpaVendorAdapter jpaVendorAdapter,
-//                                                                   ObjectProvider<PersistenceUnitManager> persistenceUnitManagers,
-//                                                                   ObjectProvider<EntityManagerFactoryBuilderCustomizer> customizers){
-//        EntityManagerFactoryBuilder builder = new EntityManagerFactoryBuilder(jpaVendorAdapter, this.)
-//        return builder;
-//    }
 }
